@@ -126,6 +126,7 @@ function getDefaultPDFPrefs()
 	$pdfpref['pdf_show_page_url']			= true;
 	$pdfpref['pdf_show_page_number']		= true;
 	$pdfpref['pdf_error_reporting']			= true;
+	$pdfpref['pdf_output']				= 'Browser';
 	return $pdfpref;
 }
 
@@ -250,6 +251,7 @@ foreach ($fontList as $font => $info)
 	}
 }
 
+$outList = array("I" => "Browser", "D" => "Download");
 
 $text = "
 ".$rs -> form_open("post", e_SELF, "pdfform", "", "enctype='multipart/form-data'")."
@@ -332,6 +334,19 @@ $text .= "
 		".$rs -> form_radio("pdf_error_reporting", "0", ($pdfpref['pdf_error_reporting'] ? "0" : "1"), "", "").PDF_LAN_4."
 	</td>
 </tr>
+
+<tr>
+	<td>".PDF_LAN_17."</td>
+	<td>
+		".$rs -> form_select_open("pdf_output");
+		foreach($outList as $key => $val)
+		{
+			$text .= $rs -> form_option($val, ($pdfpref['pdf_output'] == $key ? "1" : "0"), $key);
+		}
+		$text .= $rs -> form_select_close()."
+	</td>
+</tr>
+
 </table>
 <div class='buttons-bar center'>
 	".$rs->form_button('submit', 'update_pdf', LAN_UPDATE)."&nbsp;&nbsp;&nbsp;&nbsp;

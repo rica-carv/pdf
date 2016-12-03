@@ -31,7 +31,7 @@ define('PDF_LAN_13', 'show logo on pdf?');
 define('PDF_LAN_14', 'show sitename on pdf?');
 define('PDF_LAN_15', 'show creator page url on pdf?');
 define('PDF_LAN_16', 'show page numbers on pdf?');
-//define('PDF_LAN_17', 'update');
+define('PDF_LAN_17', 'PDF output to');
 define('PDF_LAN_18', 'PDF preferences successfully updated');
 define('PDF_LAN_19', 'Page');
 define('PDF_LAN_20', 'error reporting');
