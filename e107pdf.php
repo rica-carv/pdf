@@ -23,6 +23,7 @@
 
 if (!defined('e107_INIT')) { exit; }
 
+ob_start(); // DO NOT REMOVE, USED TO PREVENT TCPDF SENTE HEADERS ERROR!!!!!!!
 /*
 TODO:
 1. Look at using disc cache
@@ -213,7 +214,7 @@ class e107PDF extends TCPDF
 
 		//start creating the pdf and adding the data
 		$this->DefOrientation=(varset($text[7], 'P') == 'L' ? 'L' : 'P'); 	// Page orientation - P=portrait, L=landscape
-		$this->AliasNbPages();						//calculate current page + number of pages
+//___ Deprecated		$this->AliasNbPages();						//calculate current page + number of pages
 		$this->AddPage();							//start page
 
 //$pdf->setFontSubsetting(true);
@@ -229,7 +230,7 @@ class e107PDF extends TCPDF
 		$this->SetSubject($text[4]);				//subject
 		$this->SetKeywords($text[5]);				//space/comma separated
 		$file = $text[3].'.pdf';					//name of the file
-		$this->Output($file, 'D');					//Save PDF to file (D = output to download window)
+		$this->Output($file, $this->pdfPref['pdf_output']);					//Save PDF to file (D = output to download window)
 		return;
 	}
 
