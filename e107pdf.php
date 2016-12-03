@@ -215,6 +215,7 @@ class e107PDF extends TCPDF
 		//start creating the pdf and adding the data
 		$this->DefOrientation=(varset($text[7], 'P') == 'L' ? 'L' : 'P'); 	// Page orientation - P=portrait, L=landscape
 //___ Deprecated		$this->AliasNbPages();						//calculate current page + number of pages
+		$this->getAliasNbPages();						//calculate current page + number of pages
 		$this->AddPage();							//start page
 
 //$pdf->setFontSubsetting(true);
