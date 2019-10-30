@@ -24,7 +24,7 @@ class pdf_shortcodes extends e_shortcode
     elseif (deftrue('FONTAWESOME') || deftrue('BOOTSTRAP')) 
     {
 // toGlyph useless here, since bootstrap & fontawesome icons have different names...
-      $class = "class='e-tip btn btn-default hidden-print' data-original-title='{$parms[0]}'";
+      $class = "class='e-tip btn btn-default btn-secondary hidden-print' data-original-title='{$parms[0]}'";
 	  	$icon = deftrue('FONTAWESOME') ? "<i class='fa fa-file-pdf-o'></i>" : "<i class='glyphicon glyphicon-book'></i>";
     }
     else
