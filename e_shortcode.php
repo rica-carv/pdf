@@ -35,7 +35,3 @@ class pdf_shortcodes extends e_shortcode
 	}
 
 }
-
-
-
-?>
